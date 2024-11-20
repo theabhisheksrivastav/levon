@@ -1,0 +1,12 @@
+<h1>Calculator</h1>
+<p>Operator: {{ request.user.get_operator_display }}</p>
+<form method="POST">
+    {% csrf_token %}
+    <input type="number" name="num1" placeholder="Enter Number 1" required>
+    <input type="number" name="num2" placeholder="Enter Number 2" required>
+    <button type="submit">Calculate</button>
+</form>
+{% if result is not None %}
+    <p>Result: {{ result }}</p>
+{% endif %}
+<a href="{% url 'logout' %}">Logout</a>
